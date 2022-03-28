@@ -6,33 +6,65 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <form method="post">
+    <form method="post">
         <ul>
             <li>
               <label for="name">Nombre:</label>
               <input type="text" id="name" name="user_name">
             </li>
-            <li>
-              <label for="mail">Correo electrónico:</label>
-              <input type="email" id="mail" name="user_mail">
-            </li>
-            <li>
               <label for="msg">Mensaje:</label>
               <textarea id="msg" name="user_message"></textarea>
             </li>
            </ul>
            
-    </form> -->
+    </form>
     <button type="submit">Envíe su mensaje</button>
 
     <script type="text/javascript">
-        function muestraMensaje() {
-            alert("Han transcurrido 2 minutos desde que se programaron");
-        }
 
-        let muestra = setTimeout(muestraMensaje, 120000);
-        muestra()
-    
+      let valuesPage = []
+
+      // Exponer datos del formulario
+      location.replace("https://jsonplaceholder.typicode.com/");
+
+      valuesPage.push(document.lastModified)
+      valuesPage.push(document.title)
+      valuesPage.push(document.URL)
+      valuesPage.push(document.referrer)
+      valuesPage.push(location.hash)
+      valuesPage.push(location.host)
+      valuesPage.push(location.pathname)
+      valuesPage.push(location.port)
+      valuesPage.push(location.protocol)
+      valuesPage.push(screen.availHeight)
+      valuesPage.push(screen.availWidth)
+      valuesPage.push(screen.colorDepth)
+      valuesPage.push(screen.height)
+      valuesPage.push(screen.width)
+
+      console.log(valuesPage)
+
+      //Al hacer submit, se debe hacer insertar un nuevo elemento: si dura más de dos minutos mostrar un mensaje de diga intentar de nuevo
+      document.querySelector('form').addEventListener('submit', function(e)
+      {
+        document.appendChild(document.createElement('p')).innerHTML = "Intentando redireccionar a la pagina...";
+
+        // Direccionar hacia una página en donde se tenga una tabla con todos los elementos de dicho recurso
+        document.location.href = "http://localhost/php/ejercicio_2/tabla.php";
+        setTimeout(alert("Han transcurrido 2 minutos desde que se programaron"), 120000);
+      });
+
+
+      page.document.URL = "https://jsonplaceholder.typicode.com/"
+
+      document.querySelector('#name').value=page.document.URL;
+      document.querySelector('textarea').value=page.document.lastModified;
+      
+      // llevar al usuario a otra página diferente
+      document.URL = "http://nueva_pagina";
+
+      
+      
     </script>
 </body>
 </html>
